@@ -13,6 +13,7 @@
         }
         body {
             transition: background-color 0.3s, color 0.3s;
+            padding-top: 70px; /* To prevent content from being hidden behind the fixed navbar */
         }
         .dark-theme {
             background-color: #121212;
@@ -25,17 +26,18 @@
             border: 3px solid #0d6efd;
             border-radius: 5px;
         }
+        /* Removed the fixed positioning */
         #theme-toggle {
-            position: fixed;
+            /* position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 1000;
+            z-index: 1000; */
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <button id="theme-toggle" class="btn btn-outline-secondary">Dark Mode</button>
-
+    <!-- Navbar with Theme Toggle Button -->
     <nav class="navbar navbar-expand-md navbar-light shadow fixed-top bg-info">
         <div class="container-xxl">
             <a class="navbar-brand" href="#">
@@ -58,6 +60,10 @@
                     <li class="nav-item px-2">
                         <a href="#about" class="nav-link text-dark text-muted fw-bold"><i class="bi bi-file-earmark-person"></i> About Me</a>
                     </li>
+                    <!-- Theme Toggle Button -->
+                    <li class="nav-item px-2">
+                        <button id="theme-toggle" class="btn btn-outline-secondary">Dark Mode</button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -69,17 +75,17 @@
                 <div class="col-md-6 py-4 text-center text-md-start"> 
                     <div class="py-4" id="paragraphs">
                         <h3 class="py-3 text-muted">Hi, I'm Muhammad Adamu Garba</h3>
-                        <h4 class="p-0">Front-End Web Developer</h4>
-                        <p>Welcome to my portfolio! I'm a dedicated Front-End Developer with a passion for creating user-friendly and visually appealing websites. With a background in education and a love for coding, I strive to blend creativity with technology.</p>
-                        <p>I'm experienced in HTML, CSS, and JavaScript, and I enjoy turning ideas into responsive and interactive web experiences. I believe in the power of design and functionality to make a difference in the digital world.</p>
-                        <p>When I'm not coding, you can find me exploring new web development trends, sharing knowledge with the community, and seeking ways to make the web a better place. Let's connect and discuss how we can work together to create amazing web solutions!</p>
+                        <h4 class="p-0">Machine Learning Enthusiast</h4>
+                        <p>Welcome to my portfolio! I'm a dedicated Machine Learning Enthusiast with a passion for developing intelligent systems and data-driven solutions. With a background in education and a love for technology, I strive to blend analytical skills with innovative thinking.</p>
+                        <p>I'm experienced in Python, TensorFlow, and data analysis, and I enjoy transforming complex data into actionable insights. I believe in the power of machine learning and artificial intelligence to drive meaningful change in various industries.</p>
+                        <p>When I'm not working on machine learning projects, you can find me exploring new technologies, sharing knowledge with the community, and seeking ways to leverage data for positive impact. Let's connect and discuss how we can collaborate to create intelligent solutions!</p>
                         <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#pdfModal" onclick="loadPDF('files/MAG CV Email.pdf')">Open my CV</button>
                         <a class="btn btn-info" href="#about">Explore More</a>       
                     </div>
                 </div>
                 <div class="col-md-4 py-4">
                     <div class="pt-4 text-center d-none d-md-block">
-                        <img class="img-fluid float-left img-border" src="passport white (2).jpg" alt="">
+                        <img class="img-fluid float-left img-border" src="passport white (2).jpg" alt="Profile Picture">
                     </div>
                 </div>
             </div>
@@ -110,12 +116,12 @@
                         <h5><i class="bi bi-file-earmark-person"></i> About Me</h5> 
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Driven Front-End Developer with a Passion for Impactful Leadership and Financial Oversight.</h5>
-                        <p class="card-text">As an emerging talent in Front-End development, I bring a diverse background rooted in leadership and financial governance. During my tenure as the Student Union Government (SUG) President at Federal Polytechnic, Mubi, I honed my abilities in fostering collaborative environments, advocating for student welfare, and steering initiatives for positive change within the community.</p>
+                        <h5 class="card-title">Driven Machine Learning Enthusiast with a Passion for Impactful Leadership and Data-Driven Insights.</h5>
+                        <p class="card-text">As an emerging talent in Machine Learning, I bring a diverse background rooted in leadership and data governance. During my tenure as the Student Union Government (SUG) President at Federal Polytechnic, Mubi, I honed my abilities in fostering collaborative environments, advocating for student welfare, and steering initiatives for positive change within the community.</p>
                         <p class="card-text">My commitment to transparency and accountability extended beyond student governance. Serving in the Budget Monitoring Committee during my presidency, I developed a keen eye for financial structures, meticulous oversight, and strategic planning. These experiences enhanced my understanding of data-driven decision-making and resource allocation.</p>
                         <p class="card-text">Moreover, my tenure as a bursar in a local primary school afforded me firsthand insight into managing financial operations, ensuring fiscal responsibility, and streamlining administrative processes.</p>
-                        <p class="card-text">Driven by a passion for technology and a desire to merge my leadership background with emerging Front-End development skills, I am dedicated to crafting intuitive, user-centric experiences while leveraging my unique perspectives and experiences to contribute positively to every project.</p>
-                        <p class="card-text">I am committed to continuous learning, embracing challenges, and leveraging my multifaceted experiences to create impactful solutions in the ever-evolving landscape of Front-End development.</p>
+                        <p class="card-text">Driven by a passion for technology and a desire to merge my leadership background with emerging Machine Learning skills, I am dedicated to developing intelligent, data-driven solutions while leveraging my unique perspectives and experiences to contribute positively to every project.</p>
+                        <p class="card-text">I am committed to continuous learning, embracing challenges, and leveraging my multifaceted experiences to create impactful solutions in the ever-evolving landscape of Machine Learning.</p>
                         <a href="#intro" class="btn btn-outline-info"><i class="bi bi-house"></i> Go To Top</a>
                     </div>
                 </div>
@@ -123,6 +129,7 @@
         </div>
     </section>
 
+    <!-- CV Modal -->
     <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -137,6 +144,7 @@
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
@@ -150,7 +158,8 @@
         }
     </script>
 
+    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
